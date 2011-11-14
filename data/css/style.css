@@ -1,0 +1,208 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    line-height: 1.5em;
+    background: white;
+}
+
+#bar {
+    height: 32px;
+    border-bottom: 1px #ccc solid;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px #222;
+    position: relative;
+    z-index: 99;
+}
+
+#color_scheme {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    height: 20px;
+}
+#color_scheme label {
+    color: gray;
+    font-size: 10px;
+    vertical-align: top;
+}
+#color_scheme > a {
+    padding: 2px;
+    display: inline-block;
+    background-color: #778CB9;
+    position: relative;
+}
+#color_scheme > a > span{
+    display: block;
+    height: 10px;
+    width: 10px;
+}
+
+#color_scheme_dark span {
+    background-color: #232223;
+}
+
+#color_scheme_light span {
+    background-color: #fff;
+}
+
+#color_scheme > a.selected:after {
+    position: absolute;
+    content: " ";
+    border-width: 3px;
+    border-color: transparent transparent #778CB9 transparent;
+    border-style: solid;
+    top: 12px;
+    left: 3px;
+}
+
+#title {
+    font-size: 18px;
+    line-height: 32px;
+    padding-left: 20px;
+    color: #232223;
+    font-weight: normal;
+}
+
+#title .desc {
+    font-size: 12px;
+    font-style: italic;
+    color: gray;
+}
+
+#container {
+    position: relative;
+}
+#container > .pane{
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left: auto;
+    overflow: auto;
+    padding: 2px 5px;
+}
+#container > .pane:first-child {
+    left:0;
+    right: auto;
+    border-right: 1px #ccc solid;
+}
+#container > .pane.dark {
+    border-right: 1px #232223 solid;
+}
+#container > .pane::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#container > .pane::-webkit-scrollbar-button:start:decrement,
+#container > .pane::-webkit-scrollbar-button:end:increment {
+    height: 0px;
+    display: block;
+    background-color: transparent;
+}
+
+#container > .pane::-webkit-scrollbar-track-piece {
+    background: #fff;
+}
+#container > .pane.dark::-webkit-scrollbar-track-piece {
+    background: #232223;
+}
+
+#container > .pane::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+#container > .pane.dark::-webkit-scrollbar-thumb {
+    background: #232223;
+}
+#container > .pane::-webkit-scrollbar-thumb:vertical {
+    border-right: 4px #6f6f6f solid;
+    height: 50px;
+}
+#container > .pane::-webkit-scrollbar-thumb:horizontal {
+    border-bottom: 4px #6f6f6f solid;
+    width: 50px;
+}
+
+#container > .pane::-webkit-scrollbar-thumb:hover {
+    background: #6f6f6f;
+    border:0;
+}
+#preview {
+    padding: 0 20px;
+}
+
+#input {
+    height: 100%;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    color: #111;
+    background-color: #fff;
+    line-height: 1.5em;
+}
+
+#input.dark{
+    color: #fff;
+    background-color: #232223;
+}
+
+#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+    font-weight: bold;
+    margin: 0.75em 0;
+}
+#preview h1 {
+    font-size: 2em;
+}
+#preview h2 {
+    font-size: 1.8em;
+}
+#preview h3 {
+    font-size: 1.6em;
+}
+#preview h4 {
+    font-size: 1.4em;
+}
+#preview h5 {
+    font-size: 1.2em;
+}
+#preview h6 {
+    font-size: 1.0em;
+}
+#preview blockquote {
+    padding-left: 40px;
+    border-left: 5px #7d7d7d solid;
+}
+#preview ul, #preview ol {
+    margin-left: 20px;
+}
+#preview pre {
+    margin: 10px;
+    background-color: #232223;
+    padding: 10px;
+    color: #f2f2f2;
+}
+
+#preview code {
+    font-size: 14px;
+    font-family: 'monospace','Monaco';
+}
+#preview p {
+    margin: 1em 0;
+}

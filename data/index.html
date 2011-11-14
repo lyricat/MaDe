@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>MaDe Editor</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/made.js"></script>
+    <script type="text/javascript" src="js/Markdown.Converter.js"></script>
+</head>
+<body>
+<div id="bar">
+    <h1 id="title">MaDe 妈的 <span class="desc">An Editor for markdown</span></h1>
+    <div id="color_scheme"><label>Color Scheme</label>
+        <a href="dark" id="color_scheme_dark" class="selected"><span/></a>
+        <a href="light" id="color_scheme_light"><span/></a>
+    </div>
+</div>
+<div id="container">
+    <textarea class="pane" id="input" placeholder="type some markdown code or drag & drop a .md file here"></textarea>
+    <div class="pane">
+        <div id="preview"></div>
+    </div>
+</div>
+</body>
+</html>
+
