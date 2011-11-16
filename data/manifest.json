@@ -1,7 +1,7 @@
 {
   "name": "MaDe",
   "description": "MaDe Editor for markdown",
-  "version": "0.1",
+  "version": "0.3",
   "default_locale": "en",
   "app": {
     "launch": {
@@ -14,7 +14,6 @@
     "128": "image/ic128_made.png"
   },
   "permissions": [
-    "<all_urls>",
     "unlimitedStorage",
     "notifications"
   ]
