@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/made.js"></script>
+    <script type="text/javascript" src="js/ace.js"></script>
+    <script type="text/javascript" src="js/mode-markdown.js"></script>
+    <script type="text/javascript" src="js/theme-twilight.js"></script>
+    <script type="text/javascript" src="js/theme-textmate.js"></script> 
     <script type="text/javascript" src="js/Markdown.Converter.js"></script>
 </head>
 <body>
@@ -17,8 +21,8 @@
     </div>
 </div>
 <div id="container">
-    <textarea class="pane" id="input" placeholder="type some markdown code or drag & drop a .md file here"></textarea>
-    <div class="pane">
+    <div class="pane" id="input" placeholder="type some markdown code or drag & drop a .md file here"></div>
+    <div id="preview_pane" class="pane">
         <div id="preview"></div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 var converter = null;
 var md_file = null;
 function update() {
-    var source = $.trim($('#input').val());
+    var source = $.trim(editor.getSession().getValue());
     if (source.lenght != 0) {
         var html = converter.makeHtml(source);
         $('#preview').html(html);
@@ -11,60 +11,35 @@ function update() {
 function onresize() {
     var view_h = $(this).height(); 
     var view_w = $(this).width(); 
-    $('#container').height(view_h - $('#bar').height() - 5);
-    $('#container').children('.pane').width(parseInt(view_w/2)-10);
+    $('#container').height(view_h - $('#bar').height() - 1);
+    $('#container').children('.pane')
+        .height(view_h - $('#bar').height - 5);
+    $('#input').width(parseInt(view_w/2)+10)
+    $('#preview_pane').width(parseInt(view_w/2)-20);
 }
-function getCursorPos() {
-    var pos = 0;
-    var box = $('#input').get(0);
-    $('#input').focus();
-    if (document.selection) {
-    // IE
-        var sel = document.selection.createRange();
-        sel.moveStart('character', - box.value.length);
-        pos = sel.text.length;
-    } else if (box.selectionStart || box.selectionStart == '0') {
-    // others
-        pos = box.selectionStart;
-    }
-    return pos;
-}
-
 function change_theme(theme) {
     if (theme == 'dark') {
-        $('#input').addClass('dark');
+        $('.ace_scroller, .ace_sb, .ace_editor').addClass('dark');
+        editor.setTheme("ace/theme/twilight");
     } else {
-        $('#input').removeClass('dark');
+        $('.ace_scroller, .ace_sb, .ace_editor').removeClass('dark');
+        editor.setTheme("ace/theme/textmate");
     }
 }
-
+var editor = null;
 $(document).ready(function () {
     $(window).resize(function (event) {
         onresize();
     });
-    $('#input').keydown(function (ev) {
-        if (ev.keyCode == 9) {
-            var text = $(this).val();
-            var curPos = getCursorPos();
-            $(this).val(text.substring(0, curPos)
-                + '    '
-                + text.substring(curPos));
-            $('#input').get(0).selectionStart = curPos+4;
-            $('#input').get(0).selectionEnd = curPos+4;
-            return false;
-        } else if (ev.keyCode == 8) {
-            var text = $(this).val();
-            var curPos = getCursorPos();
-            var preText = text.substring(curPos - 4, curPos);
-            if (preText == '    ') {
-                $(this).val(text.substring(0, curPos - 4)
-                    + text.substring(curPos));
-                $('#input').get(0).selectionStart = curPos-4;
-                $('#input').get(0).selectionEnd = curPos-4;
-                return false;
-            } 
-        }
-    });
+    editor = ace.edit("input");
+    editor.getSession().setValue("the new text here");
+    editor.getSession().setTabSize(4);
+    editor.getSession().setUseSoftTabs(true);
+    document.getElementById('input').style.fontSize='14px';    
+    editor.getSession().setUseWrapMode(true);
+    editor.setShowPrintMargin(true);    
+    var mode = require("ace/mode/markdown").Mode;
+    editor.getSession().setMode(new mode());
 
     $('body').bind('dragover', function () {
         return false;    
@@ -73,10 +48,8 @@ $(document).ready(function () {
     }).bind('drop', function (ev) {
         md_file = ev.originalEvent.dataTransfer.files[0]; 
         var reader = new FileReader();
-        console.log(md_file);
         reader.onload = function (e) {
-            console.log(e);
-            $('#input').val(e.target.result);
+            editor.getSession().setValue(e.target.result);
         }
         reader.readAsText(md_file);
         return false;
@@ -91,6 +64,6 @@ $(document).ready(function () {
     converter = new Markdown.Converter();
     update();
     onresize();
-    change_theme('dark')
+    setTimeout(function () {change_theme('dark')}, 10)
     setTimeout(onresize, 10);
 });

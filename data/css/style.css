@@ -85,6 +85,7 @@ body {
 
 #container {
     position: relative;
+    overflow: hidden;
 }
 #container > .pane{
     position: absolute;
@@ -92,75 +93,55 @@ body {
     bottom:0;
     right:0;
     left: auto;
-    overflow: auto;
-    padding: 2px 5px;
 }
 #container > .pane:first-child {
     left:0;
     right: auto;
     border-right: 1px #ccc solid;
 }
-#container > .pane.dark {
-    border-right: 1px #232223 solid;
-}
-#container > .pane::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-#container > .pane::-webkit-scrollbar-button:start:decrement,
-#container > .pane::-webkit-scrollbar-button:end:increment {
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
     height: 0px;
     display: block;
     background-color: transparent;
 }
-
-#container > .pane::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track-piece {
     background: #fff;
 }
-#container > .pane.dark::-webkit-scrollbar-track-piece {
-    background: #232223;
-}
-
-#container > .pane::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #fff;
 }
-#container > .pane.dark::-webkit-scrollbar-thumb {
-    background: #232223;
-}
-#container > .pane::-webkit-scrollbar-thumb:vertical {
+::-webkit-scrollbar-thumb:vertical {
     border-right: 4px #6f6f6f solid;
     height: 50px;
 }
-#container > .pane::-webkit-scrollbar-thumb:horizontal {
+::-webkit-scrollbar-thumb:horizontal {
     border-bottom: 4px #6f6f6f solid;
     width: 50px;
 }
-
-#container > .pane::-webkit-scrollbar-thumb:hover {
+.dark::-webkit-scrollbar-track-piece {
+    background: #141414;
+}
+.dark::-webkit-scrollbar-thumb {
+    background: #141414;
+}
+::-webkit-scrollbar-thumb:hover {
     background: #6f6f6f;
     border:0;
 }
+.ace_editor.dark {
+    background: #141414;
+}
+#preview_pane {
+    overflow: auto;
+}
 #preview {
     padding: 0 20px;
-}
-
-#input {
-    height: 100%;
-    margin: 0;
-    border: 0;
-    width: 100%;
-    outline: none;
-    resize: none;
-    font-size: 14px;
-    color: #111;
-    background-color: #fff;
-    line-height: 1.5em;
-}
-
-#input.dark{
-    color: #fff;
-    background-color: #232223;
 }
 
 #preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
