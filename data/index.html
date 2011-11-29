@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>MaDe Editor</title>
+    <link rel="stylesheet" href="css/preview.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/made.js"></script>
@@ -15,6 +16,28 @@
 <body>
 <div id="bar">
     <h1 id="title">MaDe 妈的 <span class="desc">An Editor for markdown</span></h1>
+    <div id="control">
+        <a href="#" class="button" id="import_button">
+            <span class="label">Import</span>
+        </a>
+        <input type="file" id="import_file_button"/>
+        <div id="export_button_wrapper">
+        <a href="#" class="button" id="export_button">
+            <span class="label">Export ▾</span>
+        </a>
+        <ul class="menu" id="export_menu"> 
+            <li>
+            <a class="menuitem" href="#" id="export_source_button">Export Source</a>
+            </li>
+            <li>
+            <a class="menuitem" href="#" id="export_html_button">Export HTML</a>
+            </li>
+            <li>
+            <a class="menuitem" href="#" id="export_full_html_button">Export HTML(Full)</a>
+            </li>
+        </ul>
+        </div>
+    </div>
     <div id="color_scheme"><label>Color Scheme</label>
         <a href="dark" id="color_scheme_dark" class="selected"><span/></a>
         <a href="light" id="color_scheme_light"><span/></a>

@@ -26,24 +26,37 @@ body {
     box-shadow: 0 0 10px #222;
     position: relative;
     z-index: 99;
+    font-family: arial,sans-serif;
 }
-
+#control {
+    position: absolute;
+    right: 180px;
+    top: 2px;
+    height: 26px;
+    width: 200px;
+}
+#control .button {
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+}
 #color_scheme {
     position: absolute;
     right: 10px;
-    top: 6px;
+    top: 2px;
     height: 20px;
 }
 #color_scheme label {
     color: gray;
     font-size: 10px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 #color_scheme > a {
     padding: 2px;
     display: inline-block;
     background-color: #778CB9;
     position: relative;
+    vertical-align: middle;
 }
 #color_scheme > a > span{
     display: block;
@@ -134,56 +147,59 @@ body {
     background: #6f6f6f;
     border:0;
 }
-.ace_editor.dark {
-    background: #141414;
+#export_button_wrapper {
+    position: relative;
+    display: inline-block;
 }
-#preview_pane {
-    overflow: auto;
+#export_menu {
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 150px;
+    background: white;
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ccc; 
+    box-shadow: 1px 1px 10px #888;
 }
-#preview {
-    padding: 0 20px;
+#export_menu a {
+    padding: 3px 5px 3px 20px;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    text-decoration: none;
+    color: #333;
 }
-
-#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+#export_menu a:hover {
+    background-color: gray;
+    color: white;
+}
+.button {
+    border-radius: 2px;
+    border: 1px #ccc solid;
+    min-width: 80px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
     font-weight: bold;
-    margin: 0.75em 0;
+    color: #333;
+    line-height: 20px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,white), color-stop(4%,#F2F2F2), color-stop(100%,#EEE));
 }
-#preview h1 {
-    font-size: 2em;
+.button:hover, .button.hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,white), color-stop(4%,#EEE), color-stop(100%,#DEDEDE));
 }
-#preview h2 {
-    font-size: 1.8em;
+.button:active, .button.active {
+    -webkit-box-shadow: inset #ccc 0 0 5px;
+    box-shadow: inset #ccc 0 0 5px;
 }
-#preview h3 {
-    font-size: 1.6em;
-}
-#preview h4 {
-    font-size: 1.4em;
-}
-#preview h5 {
-    font-size: 1.2em;
-}
-#preview h6 {
-    font-size: 1.0em;
-}
-#preview blockquote {
-    padding-left: 40px;
-    border-left: 5px #7d7d7d solid;
-}
-#preview ul, #preview ol {
-    margin-left: 20px;
-}
-#preview pre {
-    margin: 10px;
-    background-color: #232223;
-    padding: 10px;
-    color: #f2f2f2;
-}
-
-#preview code {
-    font-size: 14px;
-    font-family: 'monospace','Monaco';
-}
-#preview p {
-    margin: 1em 0;
+#import_file_button {
+    position: absolute;
+    z-index: 999;
+    background-color: red;
+    width: 80px;
+    opacity: 0;
+    left: 0;
 }
