@@ -1,7 +1,7 @@
 {
   "name": "MaDe",
   "description": "MaDe Editor for markdown",
-  "version": "0.6",
+  "version": "0.7",
   "default_locale": "en",
   "app": {
     "launch": {
