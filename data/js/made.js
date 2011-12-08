@@ -4,7 +4,7 @@ var FORCE = 1;
 var MODE_FULL = 1;
 var html_begin = '<!DOCTYPE html>\n\
 <html dir="ltr">\n\
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />\n\
     <head>\n\
     <title>{TITLE}</title>\n\
     <style>\n\
