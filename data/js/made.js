@@ -3,7 +3,8 @@ var converter = null;
 var FORCE = 1;
 var MODE_FULL = 1;
 var html_begin = '<!DOCTYPE html>\n\
-<html xmlns="http://www.w3.org/1999/xhtml">\n\
+<html dir="ltr">\n\
+    <meta charset="utf-8" />
     <head>\n\
     <title>{TITLE}</title>\n\
     <style>\n\
