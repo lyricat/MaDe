@@ -81,13 +81,9 @@ function popup_import() {
     fake_click(file);
 }
 function export_raw(name, data) {
-    if (!window.BlobBuilder) {
-        window.BlobBuilder = window.WebKitBlobBuilder;
-    }
     var urlObject = window.URL || window.webkitURL || window;
-    var builder = new BlobBuilder(); 
-    builder.append(data); 
-    var export_blob = builder.getBlob(); 
+
+    var export_blob = new Blob([data]);
 
     var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
     save_link.href = urlObject.createObjectURL(export_blob);
